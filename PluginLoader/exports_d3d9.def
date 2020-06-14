@@ -1,0 +1,25 @@
+LIBRARY d3d9
+EXPORTS
+	Ordinal16=Jmp_0 @16
+	Ordinal17=Jmp_1 @17
+	Ordinal18=Jmp_2 @18
+	Ordinal19=Jmp_3 @19
+	Direct3DCreate9On12=Jmp_4 @20
+	Direct3DCreate9On12Ex=Jmp_5 @21
+	Ordinal22=Jmp_6 @22
+	Ordinal23=Jmp_7 @23
+	Direct3DShaderValidatorCreate9=Jmp_8 @24
+	PSGPError=Jmp_9 @25
+	PSGPSampleTexture=Jmp_10 @26
+	D3DPERF_BeginEvent=Jmp_11 @27
+	D3DPERF_EndEvent=Jmp_12 @28
+	D3DPERF_GetStatus=Jmp_13 @29
+	D3DPERF_QueryRepeatFrame=Jmp_14 @30
+	D3DPERF_SetMarker=Jmp_15 @31
+	D3DPERF_SetOptions=Jmp_16 @32
+	D3DPERF_SetRegion=Jmp_17 @33
+	DebugSetLevel=Jmp_18 @34
+	DebugSetMute=Jmp_19 @35
+	Direct3D9EnableMaximizedWindowedModeShim=Jmp_20 @36
+	Direct3DCreate9=Direct3DCreate9_Hook @37
+	Direct3DCreate9Ex=Direct3DCreate9Ex_Hook @38

@@ -1,0 +1,21 @@
+LIBRARY dxgi
+EXPORTS
+	ApplyCompatResolutionQuirking=Jmp_0 @1
+	CompatString=Jmp_1 @2
+	CompatValue=Jmp_2 @3
+	DXGIDumpJournal=Jmp_3 @4
+	PIXBeginCapture=Jmp_4 @5
+	PIXEndCapture=Jmp_5 @6
+	PIXGetCaptureState=Jmp_6 @7
+	SetAppCompatStringPointer=Jmp_7 @8
+	UpdateHMDEmulationStatus=Jmp_8 @9
+	CreateDXGIFactory=CreateDXGIFactory_Hook @10
+	CreateDXGIFactory1=CreateDXGIFactory1_Hook @11
+	CreateDXGIFactory2=CreateDXGIFactory2_Hook @12
+	DXGID3D10CreateDevice=Jmp_12 @13
+	DXGID3D10CreateLayeredDevice=Jmp_13 @14
+	DXGID3D10GetLayeredDeviceSize=Jmp_14 @15
+	DXGID3D10RegisterLayers=Jmp_15 @16
+	DXGIDeclareAdapterRemovalSupport=Jmp_16 @17
+	DXGIGetDebugInterface1=Jmp_17 @18
+	DXGIReportAdapterConfiguration=Jmp_18 @19
