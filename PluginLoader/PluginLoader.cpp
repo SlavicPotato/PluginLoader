@@ -592,7 +592,7 @@ bool Attach(HMODULE hModule)
         {
             hProxy = LoadLibrary(proxyDll);
             if (hProxy != NULL) {
-                gLog.Message(_T("Proxying to %s"), proxyDll);
+                gLog.Message(_T("Proxying to: %s"), proxyDll);
 
                 for (uint32_t i = 0; i < PN_SIZE; i++) {
                     if (procNames[i] != nullptr) {
@@ -604,7 +604,7 @@ bool Attach(HMODULE hModule)
                 }
             }
             else {
-                gLog.Message(_T("Failed loading proxy library: "), proxyDll);
+                gLog.Message(_T("Failed loading proxy library: %s"), proxyDll);
             }
         }
     }
