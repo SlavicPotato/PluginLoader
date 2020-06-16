@@ -3,14 +3,14 @@
 
 using namespace Log;
 
-static HMODULE hModule = nullptr;
+static HMODULE hModuleLocal = nullptr;
 static HMODULE hProxy = nullptr;
 
 extern "C" {
 #ifdef _PLUGIN_LOADER_DXGI
     volatile FARPROC procs[19];
 #elif _PLUGIN_LOADER_D3D9
-    volatile FARPROC procs[22];
+    volatile FARPROC procs[17];
 #endif
 }
 
@@ -61,7 +61,7 @@ const char* procNames[] = {
     "Direct3DCreate9On12",
     "Direct3DCreate9On12Ex",
     "Direct3DShaderValidatorCreate9",
-    "PSGPError", 
+    "PSGPError",
     "PSGPSampleTexture",
     "D3DPERF_BeginEvent",
     "D3DPERF_EndEvent",
@@ -402,7 +402,7 @@ HRESULT WINAPI CreateDXGIFactory2_Hook(UINT Flags, REFIID riid, _COM_Outptr_ voi
 {
     //gLog.Message(_T("Triggering: %s"), _T(__FUNCTION__));
     InitializePlugins();
-    
+
     auto index = Misc::Underlying(Plugin::Proxy::Index::kCreateDXGIFactory2);
     return reinterpret_cast<CreateDXGIFactory2_T>(procs[index])(Flags, riid, ppFactory);
 }
@@ -504,11 +504,21 @@ static int InstallIATHook(T& o, HMODULE h, const char* l, const char* i, void* t
     return 1;
 }
 
+static void IncModuleRefCount(HMODULE hModule)
+{
+    TCHAR moduleName[MAX_PATH];
+    GetModuleFileName(hModule, moduleName, MAX_PATH);
+    hModuleLocal = LoadLibrary(moduleName);
+}
+
 bool Attach(HMODULE hModule)
 {
     isAttached = true;
 
     Memory::MemZeroVolatile(procs, PN_SIZE);
+
+    // ensure we remain loaded
+    IncModuleRefCount(hModule);
 
     TCHAR exePath[MAX_PATH];
     GetModuleFileName(NULL, exePath, MAX_PATH);
@@ -528,6 +538,7 @@ bool Attach(HMODULE hModule)
         log << ">>> " << i.c_str() << std::endl;
     }*/
 
+    LoadLibrary((ExecutablePath + (_T("\\") PLUGIN_NAME ".dll")).c_str());
 
     gLog.Message(_T("Generic plugin loader - " _T(PLUGIN_NAME) ".dll"));
 
@@ -666,8 +677,8 @@ void Detach()
         if (hProxy != nullptr) {
             FreeLibrary(hProxy);
         }
-        if (hModule != nullptr) {
-            FreeLibrary(hModule);
+        if (hModuleLocal != nullptr) {
+            FreeLibrary(hModuleLocal);
         }
         isAttached = false;
     }
