@@ -362,3 +362,5 @@ FodyWeavers.xsd
 /PluginLoader/ReleaseD3D9
 /ReleaseD3D9
 /PluginLoader
+/PLFramework/Release MT/PLFramework.tlog
+/ReleaseDXGI

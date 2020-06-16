@@ -30,29 +30,23 @@ namespace Plugin
 	namespace ProxyD3D9
 	{
 		enum class Index : uint32_t {
-			kOrdinal16 = 0,
-			kOrdinal17 = 1,
-			kOrdinal18 = 2,
-			kOrdinal19= 3,
-			kDirect3DCreate9On12 = 4,
-			kDirect3DCreate9On12Ex = 5,
-			kOrdinal22 = 6,
-			kOrdinal23 = 7,
-			kDirect3DShaderValidatorCreate9 = 8,
-			kPSGPError = 9,
-			kPSGPSampleTexture = 10,
-			kD3DPERF_BeginEvent = 11,
-			kD3DPERF_EndEvent = 12,
-			kD3DPERF_GetStatus = 13,
-			kD3DPERF_QueryRepeatFrame = 14,
-			kD3DPERF_SetMarker = 15,
-			kD3DPERF_SetOptions = 16,
-			kD3DPERF_SetRegion = 17,
-			kDebugSetLevel = 18,
-			kDebugSetMute = 19,
-			kDirect3D9EnableMaximizedWindowedModeShim = 20,
-			kDirect3DCreate9 = 21,
-			kDirect3DCreate9Ex = 22
+			kDirect3DCreate9On12 = 0,
+			kDirect3DCreate9On12Ex = 1,
+			kDirect3DShaderValidatorCreate9 = 2,
+			kPSGPError = 3,
+			kPSGPSampleTexture = 4,
+			kD3DPERF_BeginEvent = 5,
+			kD3DPERF_EndEvent = 6,
+			kD3DPERF_GetStatus = 7,
+			kD3DPERF_QueryRepeatFrame = 8,
+			kD3DPERF_SetMarker = 9,
+			kD3DPERF_SetOptions = 10,
+			kD3DPERF_SetRegion = 11,
+			kDebugSetLevel = 12,
+			kDebugSetMute = 13,
+			kDirect3D9EnableMaximizedWindowedModeShim = 14,
+			kDirect3DCreate9 = 15,
+			kDirect3DCreate9Ex = 16
 		};
 	}
 }

@@ -58,14 +58,8 @@ const char* procNames[] = {
     "DXGIGetDebugInterface1",
     "DXGIReportAdapterConfiguration"
 #elif _PLUGIN_LOADER_D3D9
-    nullptr,
-    nullptr,
-    nullptr,
-    nullptr,
     "Direct3DCreate9On12",
     "Direct3DCreate9On12Ex",
-    nullptr,
-    nullptr,
     "Direct3DShaderValidatorCreate9",
     "PSGPError", 
     "PSGPSampleTexture",
